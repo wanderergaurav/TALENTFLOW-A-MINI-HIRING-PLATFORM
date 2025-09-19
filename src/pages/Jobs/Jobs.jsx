@@ -15,18 +15,20 @@ const Jobs = () => {
     const [view, setView] = useState('list'); // 'list' or 'kanban'
 
     useEffect(() => {
-        async function fetchJobs() {
-            try {
-                const res = await axios.get('/api/jobs');
-                setJobs(res.data.jobs);
-            } catch (error) {
-                console.error("Failed to fetch jobs:", error);
-            } finally {
-                setLoading(false);
-            }
+    async function fetchJobs() {
+        try {
+            const res = await axios.get('/api/jobs');
+            // Safely set jobs to an array, falling back to an empty array
+            setJobs(res.data?.jobs ?? []);
+        } catch (error) {
+            console.error("Failed to fetch jobs:", error);
+            setJobs([]); // Also ensure jobs is an array on error
+        } finally {
+            setLoading(false);
         }
-        fetchJobs();
-    }, []);
+    }
+    fetchJobs();
+}, []);
 
     const filteredJobs = useMemo(() => {
         return jobs.filter(j => {
