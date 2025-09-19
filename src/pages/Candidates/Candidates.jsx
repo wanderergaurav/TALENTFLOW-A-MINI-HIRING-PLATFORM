@@ -17,20 +17,18 @@ const Candidates = () => {
     const [view, setView] = useState('list');
 
     useEffect(() => {
-    async function fetchCandidates() {
-        try {
-            const res = await axios.get('/api/candidates');
-            // Safely set candidates to an array, falling back to an empty array
-            setCandidates(res.data?.candidates ?? []);
-        } catch (error) {
-            console.error("Failed to fetch candidates:", error);
-            setCandidates([]); // Also ensure candidates is an array on error
-        } finally {
-            setLoading(false);
+        async function fetchCandidates() {
+            try {
+                const res = await axios.get('/api/candidates');
+                setCandidates(res.data.candidates);
+            } catch (error) {
+                console.error("Failed to fetch candidates:", error);
+            } finally {
+                setLoading(false);
+            }
         }
-    }
-    fetchCandidates();
-}, []);
+        fetchCandidates();
+    }, []);
 
     const filteredCandidates = useMemo(() => {
         return candidates.filter(c => {

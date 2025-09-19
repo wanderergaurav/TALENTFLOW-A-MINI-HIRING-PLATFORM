@@ -15,10 +15,8 @@ db.on('populate', async () => {
   const { generateCandidates } = await import('./server/seed');
   const candidatesData = generateCandidates(1000); // Generate 1000 candidates
 
- await db.transaction('rw', db.jobs, db.candidates, async () => {
-    await db.jobs.bulkAdd(jobsData.map((job, index) => ({ ...job, order: index })));
-    await db.candidates.bulkAdd(candidatesData);
-  });
+  await db.jobs.bulkAdd(jobsData.map((job, index) => ({ ...job, order: index })));
+  await db.candidates.bulkAdd(candidatesData);
 });
 
 export default db;
