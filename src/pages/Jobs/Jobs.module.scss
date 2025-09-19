@@ -1,0 +1,105 @@
+@use "../../styles/mixins" as *;
+
+.jobsPage {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #f0f2f5; // A light, neutral background
+    color: #333;
+}
+
+.header {
+    margin-bottom: 2rem;
+    .title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.searchInput,
+.filterSelect {
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:focus {
+        outline: none;
+        border-color: #4a90e2;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    }
+}
+
+.searchInput {
+    flex-grow: 1;
+    min-width: 200px;
+    color: black;
+}
+
+.viewToggle {
+    display: flex;
+    background-color: #e2e8f0;
+    border-radius: 8px;
+    padding: 4px;
+    margin-left: auto; // Pushes toggle to the right
+
+    .toggleButton {
+        background: transparent;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 6px;
+        color: #4a5568;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s, color 0.2s;
+
+        &.active {
+            background-color: #fff;
+            color: #4a90e2;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+.mainContent {
+    .loading {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 4rem;
+        color: #718096;
+    }
+}
+
+.listContainer {
+    display: grid;
+    // Responsive grid that adjusts number of columns based on screen width
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+// Responsive adjustments for controls
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .viewToggle {
+        margin-left: 0;
+        align-self: flex-start;
+    }
+}

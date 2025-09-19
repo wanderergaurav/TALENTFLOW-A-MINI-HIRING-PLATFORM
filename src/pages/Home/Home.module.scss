@@ -1,0 +1,99 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.HomePage {
+  @include centeringdiv(column, center, center);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  background-color: #f9f9ff;
+  background-image: linear-gradient(to right, #e8e8f8 1px, transparent 1px),
+    linear-gradient(to bottom, #e8e8f8 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.hero {
+  // 1. Change layout to a vertical column
+  @include centeringdiv(column, center, center);
+  gap: 2rem; // Adjusted gap for vertical stacking
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  color: #1a1a2e;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  text-align: center; // Center all text within the hero section
+}
+
+.heroLogo {
+    width: 290px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 0.25rem; 
+  }
+
+.heroContent {
+  // 2. Ensure content block is centered
+  @include centeringdiv(column, center, center);
+  text-align: center;
+
+  h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  p {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 500px;
+  }
+}
+
+.ctaButtons {
+  // 3. Center the buttons
+  @include centeringdiv(row, center, center);
+  gap: 1rem;
+  margin-top: 2.5rem;
+
+  .button {
+    display: inline-block;
+    padding: 0.9rem 2.25rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    background: #7e57c2;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    &:hover {
+      background: #673ab7;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(126, 87, 194, 0.4);
+    }
+  }
+}
+
+// Media Query for responsive design on mobile devices
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem; // Adjust padding for smaller screens
+    gap: 1.5rem;
+  }
+
+  .heroLogo {
+    max-width: 180px; // Make logo a bit smaller on mobile
+  }
+
+  h1 {
+    font-size: 3rem; // Adjust heading size for mobile
+  }
+}

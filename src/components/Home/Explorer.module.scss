@@ -1,0 +1,39 @@
+@use "../../styles/mixins" as *;
+
+.Explorer {
+  @include centeringdiv(column, center, center);
+  width: 100%;
+  gap: 2rem;
+  padding: 3rem 1rem;
+  background-color: #0d0d0d; // softer black for modern look
+  color: #eaeaea;
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .items {
+    @include centeringdiv(row, center, center);
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    .link {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #eaeaea;
+      border: 1px solid #2e2e2e;
+      border-radius: 0.4rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #ffffff;
+        color: #111;
+        border-color: #ffffff;
+      }
+    }
+  }
+}

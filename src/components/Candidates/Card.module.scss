@@ -1,0 +1,32 @@
+@use "../../styles/mixins.scss" as *;
+.card{
+    @include centeringdiv(column,center,center);
+    background-color: transparent;
+    color:#ffffff;
+    border:1px solid #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin:2rem;
+    transition: transform 0.2s;
+    .h1{
+        font-size:1rem;
+        @media screen and (min-width:400px) {
+            font-size: 1.1rem;
+        }
+        margin-bottom:0.5rem;
+    }
+    .h2{
+        font-size:0.9rem;
+        @media screen and (min-width:400px) {
+            font-size: 1rem;
+        }
+        margin-bottom:0.5rem;
+    }
+    &:hover{
+        transform: translateY(-5px);
+        background-color: #ffffff;
+        color:#000000;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,97 @@
+.jobCard {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    min-height: 280px; // Ensures cards have a consistent height
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.jobTitleLink {
+    text-decoration: none;
+}
+
+.jobTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #5A4FCF; // The vibrant purple-blue from the example
+    margin: 0;
+    line-height: 1.2;
+}
+
+.jobMeta {
+    margin: 1rem 0;
+    flex-grow: 1; // Pushes the actions to the bottom
+
+    p {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+        color: #4A5568; // A neutral dark gray for readability
+    }
+}
+
+.jobStatus {
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+
+    // Status-specific colors
+    &.isOpen {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    &.isClosed {
+        background-color: #e2e8f0;
+        color: #4a5568;
+    }
+    &.isOnHold {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+    &.isArchived {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+}
+
+.jobActions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem; // Ensures some space even if metadata is short
+}
+
+.actionButton {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    background-color: #5A4FCF;
+    color: #ffffff;
+
+    &:hover {
+        background-color: #4a3dbb;
+        transform: translateY(-1px);
+    }
+}
+
+.archiveButton {
+    background-color: #718096;
+
+    &:hover {
+        background-color: #4A5568;
+    }
+}

@@ -1,0 +1,114 @@
+@use "../../styles/mixins" as *;
+
+.candidatesPage {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.header {
+    margin-bottom: 2rem;
+    .title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.searchInput,
+.filterSelect {
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    color: black;
+    &:focus {
+        outline: none;
+        border-color: #4a90e2;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    }
+}
+
+.searchInput {
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+.viewToggle {
+    display: flex;
+    background-color: #e2e8f0;
+    border-radius: 8px;
+    padding: 4px;
+    margin-left: auto;
+
+    .toggleButton {
+        background: transparent;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 6px;
+        color: #4a5568;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s, color 0.2s;
+
+        &.active {
+            background-color: #fff;
+            color: #4a90e2;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+.mainContent {
+    .loading {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 4rem;
+        color: #718096;
+    }
+}
+
+.listContainer {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden; // Hides corners of the react-window list
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+}
+
+.candidateRowWrapper {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem; // Padding for the row container
+}
+
+.candidateLink {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .viewToggle {
+        margin-left: 0;
+        align-self: flex-start;
+    }
+}
