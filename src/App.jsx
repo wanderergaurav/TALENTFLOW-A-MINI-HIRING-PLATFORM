@@ -3,8 +3,7 @@ import * as pages from "./pages";
 
 
 // Initialize the mock server and the database
-db.open().catch(err => console.error("Failed to open db: " + err.stack));
-server();
+
 
 function App() {
   const {
